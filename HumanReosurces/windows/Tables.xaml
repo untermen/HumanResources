@@ -1,0 +1,97 @@
+﻿<Window x:Class="HumanReosurces.windows.Tables"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HumanReosurces.windows"
+        mc:Ignorable="d"
+        Title="Таблицы базы данных Отдел кадров" Height="610" Width="600"
+		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStartupLocation="CenterScreen">
+	<Grid Background="#25223b">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="300"></ColumnDefinition>
+			<ColumnDefinition Width="300"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="150"></RowDefinition>
+			<RowDefinition Height="150"></RowDefinition>
+			<RowDefinition Height="150"></RowDefinition>
+			<RowDefinition Height="150"></RowDefinition>
+			<RowDefinition Height="150"></RowDefinition>
+		</Grid.RowDefinitions>
+
+		<Grid Grid.Row="0" Style="{StaticResource GridCenter}" Width="267">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Label Grid.Row="0" Content="Таблица Кандидатов" Style="{StaticResource TableLabel}" Margin="5"></Label>
+			<Button Grid.Row="1" Content="Открыть" Width="140" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton" Click="OpenCandidates" Margin="5"></Button>
+		</Grid>
+
+		<Grid Grid.Column="1" Grid.Row="0" Style="{StaticResource GridCenter}" Width="228">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Label Grid.Row="0" Content="Таблица Карьеры" Style="{StaticResource TableLabel}" Margin="5"></Label>
+			<Button Grid.Row="1" Content="Открыть" Width="140" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton" Click="OpenCareer" Margin="5"></Button>
+		</Grid>
+		
+		<Grid Style="{StaticResource GridCenter}" Grid.Row="1" Grid.Column="0" Width="Auto" Height="Auto">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Label Grid.Row="0" Content="Таблица Коменсаций" Style="{StaticResource TableLabel}" Margin="5"></Label>
+			<Button Grid.Row="1" Content="Открыть" Width="140" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton" Click="OpenCompensation" Margin="5"></Button>
+		</Grid>
+		
+		<Grid Grid.Column="1" Grid.Row="1" Style="{StaticResource GridCenter}" Width="Auto">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+			<Label Grid.Row="0" Content="Таблица Сотрудников" Style="{StaticResource TableLabel}" Margin="5"></Label>
+			<Button Grid.Row="1" Content="Открыть" Width="140" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton" Click="OpenEmployee" Margin="5"></Button>
+		</Grid>
+
+		<Grid Style="{StaticResource GridCenter}" Grid.Row="2" Grid.Column="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<Label Grid.Row="0" Content="Диаграмма зарплат" Style="{StaticResource TableLabel}" Margin="5"></Label>
+			<Button Grid.Row="1" Content="Открыть" Width="140" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton" Click="OpenSalaryDiagram" Margin="5"></Button>
+		</Grid>
+
+		<Grid Style="{StaticResource GridCenter}" Grid.Row="2" Grid.Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<Label Grid.Row="0" Content="Диаграмма надбавок" Style="{StaticResource TableLabel}" Margin="5"></Label>
+			<Button Grid.Row="1" Content="Открыть" Width="140" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton" Margin="5" Click="OpenBenefitsDiagram"></Button>
+		</Grid>
+
+		<Grid Style="{StaticResource GridCenter}" Grid.Row="3" Grid.Column="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<Label Grid.Row="0" Content="Диаграмма загрузки" Style="{StaticResource TableLabel}" Margin="5"></Label>
+			<Button Grid.Row="1" Content="Открыть" Width="140" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Style="{StaticResource MaterialDesignPaperDarkButton}" ToolTip="Resource name: MaterialDesignPaperDarkButton" Margin="5" Click="OpenDepartmentWorkload"></Button>
+		</Grid>
+	</Grid>
+</Window>

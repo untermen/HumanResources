@@ -1,0 +1,103 @@
+﻿<Window x:Class="HumanReosurces.windows.CompensationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HumanReosurces.windows"
+        mc:Ignorable="d"
+        Title="Таблица компенсаций" Height="450" Width="600"
+		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="#db6588"
+        FontFamily="{DynamicResource MaterialDesignFont}" Icon="/images/отдел кадров.png" WindowStartupLocation="CenterScreen">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"></ColumnDefinition>
+			<ColumnDefinition Width="Auto"></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+
+		<ScrollViewer Grid.Column="0">
+			<DataGrid x:Name="CompensationInfo" AutoGenerateColumns="False" AlternatingRowBackground="AliceBlue" AlternationCount="2" Width="Auto" Height="Auto">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="ID" Binding="{Binding Id_compensation}"></DataGridTextColumn>
+					<DataGridTextColumn Header="ID employee" Binding="{Binding Id_employee}"></DataGridTextColumn>
+					<DataGridTextColumn Header="Salary" Binding="{Binding Salary}"></DataGridTextColumn>
+					<DataGridTextColumn Header="Benefits" Binding="{Binding Benefits}"></DataGridTextColumn>
+				</DataGrid.Columns>
+			</DataGrid>
+		</ScrollViewer>
+
+		<Grid Grid.Column="1" HorizontalAlignment="Left">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+				<RowDefinition Height="Auto"></RowDefinition>
+			</Grid.RowDefinitions>
+
+			<Grid Grid.Row="0">
+				<StackPanel Orientation="Horizontal">
+					<Label Content="ID" FontSize="20"></Label>
+					<TextBox x:Name="txtID" HorizontalAlignment="Center" Width="150" Height="30" Margin="5 5 0 0" TextWrapping="Wrap"></TextBox>
+				</StackPanel>
+			</Grid>
+			<Grid Grid.Row="1">
+				<StackPanel Orientation="Horizontal">
+					<Label Content="ID employee" FontSize="20"></Label>
+					<TextBox x:Name="txtIDEmployee" HorizontalAlignment="Center" Width="150" Height="30" Margin="5 5 0 0" TextWrapping="Wrap"></TextBox>
+				</StackPanel>
+			</Grid>
+			<Grid Grid.Row="2">
+				<StackPanel Orientation="Horizontal">
+					<Label Content="Salary" FontSize="20"></Label>
+					<TextBox x:Name="txtSalary" HorizontalAlignment="Center" Width="150" Height="30" Margin="5 5 0 0" TextWrapping="Wrap"></TextBox>
+				</StackPanel>
+			</Grid>
+			<Grid Grid.Row="3">
+				<StackPanel Orientation="Horizontal">
+					<Label Content="Benefits" FontSize="20"></Label>
+					<TextBox x:Name="txtBenefits" HorizontalAlignment="Center" Width="150" Height="30" Margin="5 5 0 0" TextWrapping="Wrap"></TextBox>
+				</StackPanel>
+			</Grid>
+			<Grid Grid.Row="4">
+				<Button Content="Insert" Margin="5 5 0 0" Click="InsertData"></Button>
+			</Grid>
+			<Grid Grid.Row="5">
+				<Button Content="Update" Margin="5 5 0 0" Click="UpdateData"></Button>
+			</Grid>
+			<Grid Grid.Row="6">
+				<Button Content="Delete" Margin="5 5 0 0" Click="DeleteData"></Button>
+			</Grid>
+
+			<Grid Grid.Row="7">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"></RowDefinition>
+					<RowDefinition Height="Auto"></RowDefinition>
+					<RowDefinition Height="Auto"></RowDefinition>
+					<RowDefinition Height="Auto"></RowDefinition>
+				</Grid.RowDefinitions>
+
+				<ComboBox x:Name="searchComboBox" Grid.Row="0" MinWidth="72" Margin="5" materialDesign:HintAssist.FontFamily="Verdana" materialDesign:HintAssist.Hint="Выбор категории" ItemsSource="{Binding LongStringList}" Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+					<ComboBoxItem Content="ID" x:Name="SearchId"></ComboBoxItem>
+					<ComboBoxItem Content="ID сотрудника" x:Name="SearchIdEmployee"></ComboBoxItem>
+					<ComboBoxItem Content="Зарплата" x:Name="SearchSalary"></ComboBoxItem>
+					<ComboBoxItem Content="Надбавки" x:Name="SearchBenefits"></ComboBoxItem>
+				</ComboBox>
+
+				<TextBox x:Name="SearchText" Grid.Row="1" Width="200" Height="30" TextWrapping="Wrap" Text="{Binding SearchText}"></TextBox>
+
+				<Button Grid.Row="2" Content="Поиск" Margin="5" Click="SearchData"></Button>
+
+				<Button Grid.Row="3" Content="Очистить" Click="ClearDataGrid"></Button>
+			</Grid>
+		</Grid>
+	</Grid>
+</Window>
